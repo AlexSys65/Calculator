@@ -241,8 +241,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean checkSymbol(String charAction) {
-        String m = "%+-*/^";
-        return m.contains(charAction);
+        return actions.contains(charAction);
     }
 
 }
