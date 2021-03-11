@@ -61,9 +61,6 @@ public class CalculationRPN {
         if ((Double) linkedListRPN.get(0)%1 == 0) {
             resultString = resultString.substring(0, resultString.indexOf("."));
         }
-        /*if (resultString.length() > outputSize) {
-
-        }*/
 
         return resultString;
     }

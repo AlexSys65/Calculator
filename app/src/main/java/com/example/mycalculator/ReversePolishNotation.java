@@ -33,7 +33,6 @@ public class ReversePolishNotation {
                 continue;
             }
             if (actions.contains(o.toString())) {
-                //actionProcessing(o.toString(), actStack, outputStack);
                 j = -1;
                 if (actStack.isEmpty() | o.toString().equals("(")) {
                     actStack.add(o.toString());
@@ -71,34 +70,4 @@ public class ReversePolishNotation {
         }
         return outputStack;
     }
-
-   /* private static void actionProcessing(String act, List<String> actStack, List<Object> outStack) {
-
-        int j = -1;
-        if (actStack.isEmpty() | act.equals("(")) {
-            actStack.add(act);
-            return;
-        }
-        for (int i = actStack.size() - 1; i >= 0; i--) {
-            if (act.equals(")")) {
-                while (!actStack.get(i).equals("(")) {
-                    outStack.add(actStack.get(i));
-                    i--;
-                    j++;
-                }
-                actStack.remove(i);
-                break;
-            }
-            if (priority.get(actStack.get(i)) < priority.get(act)) {break;}
-            outStack.add(actStack.get(i));
-            j++;
-        }
-        while (j >= 0){
-            actStack.remove(actStack.size() - 1);
-            j--;
-        }
-        if (!act.equals(")")) {
-            actStack.add(act);
-        }
-    }*/
 }
