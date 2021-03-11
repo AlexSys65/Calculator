@@ -12,16 +12,21 @@
     </style>
 
     <style name="number_button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:backgroundTint">@color/colorNumberButton</item>
         <item name="android:textColor">@color/colorTopButton</item>
-        <item name="android:textSize">@dimen/button_text</item>
+    </style>
+    <style name="number_button_two" parent = "number_button">
+        <item name="android:backgroundTint">@color/colorAction</item>
+        <item name="android:textColor">@color/colorTopButton</item>
     </style>
 
     <style name="action_button" parent="number_button">
         <item name="android:backgroundTint">@color/colorButtonAct</item>
         <item name="android:textColor">@color/colorAction</item>
+    </style>
+    <style name="action_button_two" parent="number_button">
+        <item name="android:backgroundTint">@color/colorAction_two</item>
+        <item name="android:textColor">@color/colorScreen</item>
     </style>
 
     <style name="mem_button">

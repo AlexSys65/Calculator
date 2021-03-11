@@ -25,7 +25,12 @@
     <string name="percent">%</string>
     <string name="sqrt">√</string>
     <string name="square">x²</string>
-    <string name="genPassword">GP</string>
+    <string name="genPassword">CC</string>
     <string name="valueScreen">10+3</string>
     <string name="valueScreenPreResult">13</string>
+    <string name="valueColorTheme">Theme 1</string>
+    <string name="colorTheme">Change the color scheme</string>
+    <string name="colorTheme1">colorTheme_1</string>
+    <string name="colorTheme2">colorTheme_2</string>
+    <string name="hintMemory">M</string>
 </resources>

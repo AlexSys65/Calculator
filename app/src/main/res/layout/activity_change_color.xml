@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal|center_vertical"
+             xmlns:tools="http://schemas.android.com/tools"
+             tools:context=".ChangeColorActivity"
+             style="@style/FrameLayout">
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            style="@style/CardView.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/colorTheme" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_Theme"
+            style="@style/CardView.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text= "@string/valueColorTheme" />
+
+    </TableRow>
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.google.android.material.button.MaterialButton
+                android:text="@string/_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_theme_1"
+                style="@style/mem_button"/>
+        <com.google.android.material.button.MaterialButton
+                android:text="@string/_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_theme_2"
+                style="@style/number_button"/>
+    </TableRow>
+
+</TableLayout>

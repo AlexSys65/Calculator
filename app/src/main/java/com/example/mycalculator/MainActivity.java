@@ -1,5 +1,7 @@
 package com.example.mycalculator;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -9,22 +11,27 @@ import android.os.Bundle;
 
 import java.util.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Constants {
 
     private TextView textView, preResultTextView;
     private List<Object> calculateList = new ArrayList<>();
     private String partNumber = "";
     private final String actions = "%+-*/^";
-
-
+    private static final String APP_THEME = "APP THEME";
+    private static final int theme_1 = 1;
+    private static final int theme_2 = 2;
+    private static final String NameSharedPreference = "THEME_1";
 
     private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //String auxString;
 
         super.onCreate(savedInstanceState);
+
+        setTheme(getAppTheme(R.style.number_button));
+
+
         setContentView(R.layout.activity_main);
 
         Button button0 = findViewById(R.id.button_0);
@@ -219,7 +226,29 @@ public class MainActivity extends AppCompatActivity {
             preResultTextView.setText(resultMethod(true, partNumber));
             calculateList.add("%");
         });
+        buttonGP.setOnClickListener(v -> {
+            // вызов активити для смены цветовой схемы
+            Intent intent = new Intent(this, ChangeColorActivity.class);
+            startActivityForResult(intent, 1);
+        });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (data == null) {
+            return;
+        }
+        if (resultCode == 1) {
+            // установить схему 1
+
+            recreate();
+        }
+        if (resultCode == 0) {
+            // установить схему 2
+
+            recreate();
+        }
     }
 
     private String resultMethod(boolean flag, String partB) {
@@ -242,6 +271,28 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkSymbol(String charAction) {
         return actions.contains(charAction);
+    }
+
+    // Чтение настроек, параметр «тема»
+    private int getCodeStyle(int codeStyle) {
+        // Работаем через специальный класс сохранения и чтения настроек
+        SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference,
+                MODE_PRIVATE);
+        //Прочитать тему, если настройка не найдена - взять по умолчанию
+        return sharedPref.getInt(APP_THEME, codeStyle);
+    }
+
+    private int getAppTheme(int codeStyle) {
+        return codeStyleToStyleId(getCodeStyle(codeStyle));
+    }
+
+    private int codeStyleToStyleId(int codeStyle){
+        switch(codeStyle){
+            case theme_2:
+                return R.style.number_button_two;
+            default:
+                return R.style.number_button;
+        }
     }
 
 }

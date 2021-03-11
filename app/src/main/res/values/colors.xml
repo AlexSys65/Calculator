@@ -10,4 +10,6 @@
     <color name="colorButtonAct">#964b00</color>
     <color name="colorScreen">#FFEB3B</color>
     <color name="colorAction">#000000</color>
+    <color name="colorAction_two">#504F4F</color>
+
 </resources>
